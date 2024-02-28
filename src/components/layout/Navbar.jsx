@@ -1,19 +1,20 @@
 import './Navbar.css'
-import CartWidget from '../common/CartWidget'
+import CartWidget from '../common/cartWidget/CartWidget'
+import { Link } from 'react-router-dom'
 
 export const Navbar = () => {
     return (
         <nav className='navBar' style={{backgroundColor:'black'}}>
             <div>
-                <a href=""><img className='brand' src='https://res.cloudinary.com/dcu5e0sym/image/upload/v1706998716/Recurso_2_v931kc.png' alt='' /></a>
+                <Link to=""><img className='brand' src='https://res.cloudinary.com/dcu5e0sym/image/upload/v1706998716/Recurso_2_v931kc.png' alt='' /></Link>
             </div>
             <div>
                 <ul className='itemsBar'>
-                    <li><a style={{color:'white', fontWeight: '500'}} href="">Home</a></li>
-                    <li><a style={{color:'white', fontWeight: '500'}} href="">Remeras</a></li>
-                    <li><a style={{color:'white', fontWeight: '500'}} href="">Hoddies</a></li>
-                    <li><a style={{color:'white', fontWeight: '500'}} href="">Pantalones</a></li>
-                    <a style={{fontWeight:'300'}} href=""><CartWidget/></a>
+                    <li><Link style={{color:'white', fontWeight: '500'}} to="/">Home</Link></li>
+                    <li><Link style={{color:'white', fontWeight: '500'}} to="/category/male">Male</Link></li>
+                    <li><Link style={{color:'white', fontWeight: '500'}} to="/category/famale">Famale</Link></li>
+                    <li><Link style={{color:'white', fontWeight: '500'}} to="/category/unisex">Unisex</Link></li>
+                    <Link style={{fontWeight:'300'}} to="/cart"><CartWidget/></Link>
                 </ul>
             </div>
         </nav>

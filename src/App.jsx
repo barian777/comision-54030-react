@@ -1,17 +1,22 @@
-import { Footer } from './components/layout/Footer';
-import { Navbar } from './components/layout/Navbar'
-import { ItemListContainer } from './components/pages/ItemListContainer'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Cart, ItemDetailContainer ,ItemListContainer } from "./components/pages";
+import { Navbar } from "./components/layout";
 
 function App() {
-
   return (
-    <div>
-      <Navbar />
-      <ItemListContainer greeting ='Bienvenido a Lordish' />
-      {/* <Footer /> */}
-    </div>
-       
-  );
-};
+    <>
+      <BrowserRouter>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<ItemListContainer />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/item/:id" element ={<ItemDetailContainer/>}/>
+          <Route path="/category/:category" element ={<ItemListContainer/>}/>
 
-export default App
+        </Routes>
+      </BrowserRouter>
+    </>
+  );
+}
+
+export default App;

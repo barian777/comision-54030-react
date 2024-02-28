@@ -1,0 +1,37 @@
+button{
+    background-color:white;
+    cursor: pointer;
+    width: 100%;
+    font-weight:600;
+}
+
+.buttonAddCart{
+    transition: all 500ms;
+    border: none;
+    padding: 0.5rem;
+}
+
+.buttonAddCart:hover{
+    color:white;
+    background-color:black;
+}
+
+.countsElements{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+
+}
+
+.counter{
+    text-align: center;
+    font-weight:600;
+    padding: 0.5rem;
+}
+
+.btnAddSub{
+    color: black;
+    border:none;
+    font-size: 1.5rem;
+}

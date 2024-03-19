@@ -1,11 +1,21 @@
+import { Badge } from "@mui/material";
 import { FaOpencart } from "react-icons/fa";
+import { useContext } from "react";
+import { CartContext } from "../../../context/cartcontext/CartContext";
+
 
 const CartWidget = () => {
+
+  const { getTotalProducts } = useContext(CartContext)
+
+  let numberWidget = getTotalProducts()
+
     return (
-      <div>
-        <span style={{color:'white', fontSize:'0.75rem'}}>0</span>
-        <FaOpencart color='white' size={'1.5em'}/>
-      </div>
+      <>
+         <Badge badgeContent = {numberWidget} showZero  color="secondary" anchorOrigin={{vertical: 'top', horizontal: 'left'}}>
+          <FaOpencart color='white' size={'1.5em'}/>
+        </Badge>
+      </>
     );
   };
   

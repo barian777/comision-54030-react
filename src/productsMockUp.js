@@ -2,17 +2,6 @@ import { v4 as uuidv4 } from 'uuid';
 
 export let products = [
   {
-    id: uuidv4(),
-    name: "DIOR",
-    subname:"Sauvage EDP",
-    price: 240500,
-    description: "Nota de Salida: Bergamota.\nNotas de Corazón: Pimienta de Sichuan, lavanda, anís estrellado y nuez moscada.\nNotas de Fondo: Ambroxan y vainilla.",
-    img: "https://res.cloudinary.com/dcu5e0sym/image/upload/v1707947554/184357-800-auto_ojaoqw.jpg",
-    stock: 10,
-    category: "male",
-  },
-  {
-    id: uuidv4(),
     name: "RABANNE",
     subname:"Invictus Victory Elixir Parfum",
     price: 167500,
@@ -21,9 +10,7 @@ export let products = [
     stock: 10,
     category: "male",
   },
-  {
-    id:uuidv4(),
-    name: "DOLCE & GABBANA",
+  {    name: "DOLCE & GABBANA",
     subname:"The One for Men EDP",
     price: 167000,
     description: "Notas de Salida: Pomelo, cilantro, albahaca.\nNotas de Corazón: Jengibre, cardamomo, flor de azahar.\nNotas de Fondo: Tabaco, ámbar, cedro.",
@@ -32,17 +19,6 @@ export let products = [
     category: "male",
   },
   {
-    id: uuidv4(),
-    name: "CAROLINA HERRERA",
-    subname:"Good Girl Blush EDP",
-    price: 115000,
-    description: "Notas de Salida: Bergamota, mandarina y aceite de almendras.\nNotas de Corazón: Ylang ylang, rosyfolia & petalia y upcycled rosa.\nNotas de Fondo: Absolute vainilla, upcycled vainillin y haba ton\n",
-    img: "https://res.cloudinary.com/dcu5e0sym/image/upload/v1707948231/205104-800-auto_vnnsnb.jpg",
-    stock: 10,
-    category: "famale",
-  },
-  {
-    id: uuidv4(),
     name: "DOLCE & GABANA",
     subname:"Devotion EDP",
     price: 240000,
@@ -52,7 +28,6 @@ export let products = [
     category: "famale",
   },
   {
-    id: uuidv4(),
     name: "DIOR",
     subname:"Miss Dior EDP New",
     price: 165000,
@@ -62,7 +37,6 @@ export let products = [
     category: "famale",
   },
   {
-    id: uuidv4(),
     name: "SALVATORE FERRAGAMO",
     subname:"Giungle Di Seta EDP",
     price: 222000,
@@ -72,7 +46,6 @@ export let products = [
     category: "unisex",
   },
   {
-    id: uuidv4(),
     name: "ALEXANDRE J",
     subname:"The Art Deco Collection The Majestic Oud EDP",
     price: 261000,
@@ -82,7 +55,6 @@ export let products = [
     category: "unisex",
   },
   {
-    id: uuidv4(),
     name: "HERMÈS",
     subname:"Un Jardin sur le Nil Eau de Toilette",
     price: 221000,
@@ -100,7 +72,7 @@ export const getProducts = () => {
     if(products.length > 0){
       setTimeout(() => {
         resolve(products)
-      }, 2000);
+      }, 200);
     } else{
       reject("No hay productos")
     }
@@ -121,11 +93,13 @@ export const getOneProdcut = (id) => {
         }else{
           reject(`No se ha podido encontrar el preodcuto con el id: ${id}`)
         }
-      }, 1000)
+      }, 200)
 
     }else{
       reject("No hay productos")
     }
   })
-  
+}
+
+export const onAdd = (quantity) => {
 }

@@ -3,6 +3,7 @@ import styles from "./ItemListContainer.module.css";
 import { ProductCard } from "../../common/productCard/ProductCard";
 
 export const ItemList = ({ items }) => {
+  
   return (
     <>
     <h1 className={styles.title}>TODOS LOS PRODUCTOS</h1>

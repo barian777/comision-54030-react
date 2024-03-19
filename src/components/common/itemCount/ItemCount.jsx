@@ -1,6 +1,6 @@
 import  styles  from './ItemCount.module.css';
 
-export const ItemCount = ({counter, addProduct, subsProduct, stock}) => {
+export const ItemCount = ({counter, addProduct, subsProduct, stock, onAdd}) => {
   return (
     <div>
         <div className={styles.countsElements}>
@@ -8,7 +8,7 @@ export const ItemCount = ({counter, addProduct, subsProduct, stock}) => {
             <p className={styles.counter}>{counter}</p>
             <button onClick={addProduct} disabled={counter === stock ? true : false} className={styles.btnAddSub}>+</button>
         </div>
-        <button className={styles.buttonAddCart}>Add to Cart</button>
+        <button className={styles.buttonAddCart} onClick={() => onAdd(counter)} >Add to Cart</button>
     </div>
   );
 };

@@ -42,4 +42,16 @@
 .price{
     text-align: end;
     padding-right: 1rem;
+    padding-bottom: 1rem;
+}
+
+.buttonDetail{
+    transition: all 500ms;
+    border: none;
+    padding: 0.5rem;
+}
+
+.buttonDetail:hover{
+    color:white;
+    background-color:black;
 }

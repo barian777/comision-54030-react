@@ -1,7 +1,7 @@
 import { ItemCountContainer } from "../../common/itemCount/ItemCountContainer"
 import styles from "./ItemDetailContainer.module.css"
 
-export const ItemDetail = ({itemSelect}) => {
+export const ItemDetail = ({itemSelect, onAdd, totalQuantityOneProduct}) => {
     return (
         <>
         <div>
@@ -15,7 +15,7 @@ export const ItemDetail = ({itemSelect}) => {
                         <h2>{itemSelect.subname}</h2>
                         <h2>${itemSelect.price}</h2>
                         <div>
-                            <ItemCountContainer stock={itemSelect.stock}/>
+                            <ItemCountContainer stock={itemSelect.stock} onAdd={onAdd} valueInitial={totalQuantityOneProduct} />
                         </div>
                     </div>
                 </div>

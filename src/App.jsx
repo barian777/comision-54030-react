@@ -1,19 +1,15 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Cart, ItemDetailContainer ,ItemListContainer } from "./components/pages";
-import { Navbar } from "./components/layout";
+import { BrowserRouter} from "react-router-dom";
+import { CartContextProvider } from "./context/cartcontext/CartContext";
+import { AppRouter } from "./router/AppRouter";
+
 
 function App() {
   return (
     <>
       <BrowserRouter>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<ItemListContainer />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/item/:id" element ={<ItemDetailContainer/>}/>
-          <Route path="/category/:category" element ={<ItemListContainer/>}/>
-
-        </Routes>
+          <CartContextProvider> 
+            <AppRouter />
+          </CartContextProvider>
       </BrowserRouter>
     </>
   );

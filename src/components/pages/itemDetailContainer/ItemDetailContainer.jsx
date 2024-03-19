@@ -1,7 +1,11 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { ItemDetail } from "./ItemDetail";
-import { getOneProdcut} from "../../../productsMockUp";
 import { useParams } from "react-router-dom";
+import { CartContext } from "../../../context/cartcontext/CartContext";
+import PacmanLoader from "react-spinners/PacmanLoader"
+import styles from "./ItemDetailContainer.module.css"
+import { dataBase } from "../../../firebaseConfig";
+import { collection, doc, getDoc } from "firebase/firestore";
 
 export const ItemDetailContainer = () => {
   const { id } = useParams();
@@ -9,15 +13,42 @@ export const ItemDetailContainer = () => {
   const [itemSelect, setItemSelect] = useState({});
   const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
-    console.log(id);
-    getOneProdcut(id).then((response) => 
-    setItemSelect(response), setIsLoading(false))
-  }, []);
+  const { addCart, howQuantity } = useContext(CartContext)
 
-    return (
+  let totalQuantityOneProduct = howQuantity(id)
+
+  useEffect(() => {
+    setIsLoading(true)
+    let prodCollec = collection(dataBase, "products")
+    let prodDoc = doc(prodCollec, id)
+    getDoc(prodDoc).then(res => {
+      setItemSelect({...res.data(), id: res.id })
+    }).finally(()=> setIsLoading(false))
+
+  }, [id]);
+
+  const onAdd = (quantity) => {
+
+    let infoProduct ={
+      ...itemSelect,
+      quantity:quantity
+    }
+    addCart(infoProduct)
+  };
+
+  if(isLoading){
+    return(
+      <>
+        <div className={styles.loading} >
+          <PacmanLoader color="#000000"/>
+        </div>
+      </>
+    )
+  }
+
+  return (
     <>
-        {isLoading ? <h1>Cargando</h1> : <ItemDetail itemSelect={itemSelect} />}
+        <ItemDetail itemSelect={itemSelect} onAdd={onAdd} totalQuantityOneProduct={totalQuantityOneProduct}/>
     </>
-        );
+  );
 };

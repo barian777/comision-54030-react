@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import { Layout } from "../components/layout";
 import { routes } from "./routes";
+import { NotFound } from "../components/pages/notFound/NotFound";
 
 export const AppRouter = () => {
   return (
@@ -10,7 +11,7 @@ export const AppRouter = () => {
           <Route key={id} path={path} element={<Element />} />
         ))}
       </Route>
-      <Route path="*" element={<h1>404 is not found</h1>} />
+      <Route path="*" element={<NotFound/>} />
     </Routes>
   );
 };

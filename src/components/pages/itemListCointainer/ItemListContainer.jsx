@@ -43,9 +43,9 @@ export const ItemListContainer = () => {
   if (isLoading) {
     return (
       <>
-        <div className={styles.loading}>
-          <PacmanLoader color="#000000" />
-        </div>
+          <div className={styles.loading}>
+            <PacmanLoader color="#000000" />
+          </div>
       </>
     );
   }

@@ -1,0 +1,37 @@
+.title{
+    text-align: center;
+    padding: 1rem;
+}
+
+.formCont{
+    display: flex;
+    flex-direction:column ;
+    gap: 2rem;
+    width: 500px;
+    padding: 1rem;
+    padding-top: 2rem;
+    margin-left:31rem ;
+}
+
+input{
+    height: 1.5rem;
+    padding: .3rem;
+}
+
+.btnBuy{
+    width: 300px;
+    border: solid 2px;
+    border-radius: 2rem;
+    font-size: 1rem;
+    padding:.5rem;
+    transition: 0.5s ease;
+    position: absolute;
+    left: 40%;
+    bottom: 30%;
+}
+
+.btnBuy:hover {
+    color: white;
+    background-color: black;
+    scale: 1.2;
+}

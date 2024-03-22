@@ -1,10 +1,9 @@
 import { useContext, useState } from "react";
 import { CheckOut } from "./CheckOut";
-import { useFormik } from "formik";
-import * as Yup from "yup";
 import { CartContext } from "../../../context/cartcontext/CartContext";
 import {addDoc, collection, updateDoc, doc} from "firebase/firestore"
 import { dataBase } from "../../../firebaseConfig";
+import styles from "./CheckOut.module.css"
 
 export const CheckOutContainer = () => {
 

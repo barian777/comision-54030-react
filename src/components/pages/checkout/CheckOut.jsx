@@ -1,11 +1,21 @@
+import styles from "./CheckOut.module.css"
+import { Link } from "react-router-dom";
+
 export const CheckOut = ({ sendForm, getInfo, orderId }) => {
   return (
     <>
       {orderId ? (
-        <h1>Tu orden de compra es {orderId}</h1>
+        <div style={{height:"600px"}}>
+          <h1 className={styles.title}>🎊LA ORDEN DE COMPRA SE REALIZO CON EXITO🎊</h1>
+          <h2 className={styles.title}>Tu orden es <span style={{backgroundColor:"black", color:"white", padding:".5rem"}}>{orderId}</span></h2>
+          <Link to="/">
+            <button className={styles.btnBuy}>Seguir Comprando</button>
+          </Link>
+        </div>
       ) : (
-        <div>
-          <form onSubmit={sendForm}>
+        <div style={{height:"600px"}}>
+          <h1 className={styles.title}>Completa el formulario para finalizar la orden de compra</h1>
+          <form className={styles.formCont} onSubmit={sendForm}>
             <input
               type="text"
               placeholder="Nombre"
@@ -30,7 +40,7 @@ export const CheckOut = ({ sendForm, getInfo, orderId }) => {
               onChange={getInfo}
               name="phone"
             />
-            <button type="submit">Comprar</button>
+            <button className={styles.btnBuy} type="submit">Comprar</button>
           </form>
         </div>
       )}
